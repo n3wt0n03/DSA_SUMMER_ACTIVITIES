@@ -1,0 +1,6 @@
+# ignore all files with these extensions
+*.o
+*.win
+*.exe
+*.layout
+*.o
