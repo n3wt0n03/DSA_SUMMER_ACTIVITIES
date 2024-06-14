@@ -6,5 +6,7 @@ Activity 3 - Stack Array and Linked List
 
 # CODES TO REVISE:
 - StackArray
+	- push() function
+		- when visualizing the stack, the first element doesn't directly go to the first index. It goes to the second index instead.
 	- display() function 
 	- visualize() function
