@@ -8,11 +8,12 @@ int main(int argc, char *argv[]) {
 	StackArrayList stack = createStack();
 	
 	stack_push(&stack, 40);
-	stack_push(&stack, 31);
-	stack_push(&stack, 20);
+//	stack_push(&stack, 31);
+//	stack_push(&stack, 20);
+//	stack_push(&stack, 10);
+//	stack_push(&stack, 15);
 
-	int top = stack_peek(stack);
-	printf("Peeking the top of the stack: %d", top);
-	display(stack);
+//	display(stack);
+	visualize(stack);
 	return 0;
 }
