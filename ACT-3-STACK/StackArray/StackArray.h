@@ -21,7 +21,7 @@ int stack_peek(StackArrayList s);
 void display(StackArrayList s); // can't traverse
 void visualize(StackArrayList s); // can traverse the array but display the value and its index and its top
 
-// others
-// create a function that would get all even numbers and return as a new stack removing from the old stack
+// Other Functions
+StackArrayList createStackEven(StackArrayList *s); // create a function that would get all even numbers and return as a new stack removing from the old stack
 
 #endif

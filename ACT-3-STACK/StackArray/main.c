@@ -6,14 +6,18 @@
 
 int main(int argc, char *argv[]) {
 	StackArrayList stack = createStack();
-	
-	stack_push(&stack, 40);
-//	stack_push(&stack, 31);
-//	stack_push(&stack, 20);
-//	stack_push(&stack, 10);
-//	stack_push(&stack, 15);
 
-//	display(stack);
+	stack_push(&stack, 40);
+	stack_push(&stack, 31);
+	stack_push(&stack, 20);
+	stack_push(&stack, 10);
+	stack_push(&stack, 15);
+
+	display(stack);
 	visualize(stack);
+	
+	StackArrayList stackEven = createStackEven(&stack);
+	display(stackEven);
+	visualize(stackEven);
 	return 0;
 }
