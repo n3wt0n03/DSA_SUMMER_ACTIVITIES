@@ -17,5 +17,9 @@ CURRENT ACTIVITIES IN THE REPOSITORY
 NOTES TO REMEMBER: 
 - Activities 1 and 2 will be revised as a project
 - Will add a README file on both Activities 1 and 2
-- will continue on working Activity 3 (Stack Linked List Version)
-- Will revise some minor codes in Activity 4
+- Will revise some minor codes in some activities
+	- Activity 3
+		- Double check the display printing in stack array and linked list
+	- Activity 4
+		- Will update the display printing in queue linked list
+		- Will add a display for the front and rear values in display

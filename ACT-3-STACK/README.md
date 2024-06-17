@@ -11,7 +11,5 @@ Activity 3 - Stack Array and Linked List
 # CODES TO REVISE:
 - StackLinkedList
 	- display() function
-	- visualize() function
-	- main() function
 
 Additional Notes: Ask sir if there is an isFull() function in StackLinkedList

@@ -11,9 +11,9 @@ typedef struct node {
 StackLL initStack(void);		// set an empty stack
 bool isEmpty(StackLL head);			//check if stack is empty
 //bool isFull(Stack *list);			// Tentative to add
-void push(StackLL *head, int data);	//insert from the top
-void pop(StackLL *head);					//delete form the top
-int peek(StackLL head);				//return the top
+void stack_push(StackLL *head, int data);	//insert from the top
+void stack_pop(StackLL *head);					//delete form the top
+int stack_peek(StackLL head);				//return the top
 void display(StackLL head);				// display the top
 void visualize(StackLL head);			//display the list
 
