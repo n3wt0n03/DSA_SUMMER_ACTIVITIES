@@ -9,7 +9,6 @@ Activity 3 - Stack Array and Linked List
 - Navigate through the folders between StackArray and StackLinkedList
 
 # CODES TO REVISE:
-- StackLinkedList
-	- display() function
+- None so far
 
 Additional Notes: Ask sir if there is an isFull() function in StackLinkedList

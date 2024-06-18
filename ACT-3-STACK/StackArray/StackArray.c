@@ -50,7 +50,7 @@ void display(StackArrayList s){
 	
 	StackArrayList tempStack = createStack();
 	
-	printf("Temporary Stack: \n");
+	printf("Original Stack: \n");
 	while(!(isEmpty(s))){
 		stack_push(&tempStack, stack_peek(s));
 		printf("\n%d", stack_peek(tempStack));
@@ -58,7 +58,7 @@ void display(StackArrayList s){
 	}
 	printf("\n");
 	
-	printf("\nOriginal Stack: \n");
+	printf("\nRestoring Stack to its Previous Form: \n");
 	while(!(isEmpty(tempStack))){
 		stack_push(&s, stack_peek(tempStack));
 		printf("\n%d", stack_peek(s));
@@ -71,11 +71,14 @@ void display(StackArrayList s){
 	printf("\n\nVisualization of Stack:");
 	printf("\n--------------------\n");
 	printf("Value of Top of the Stack: %d\n\n", s.data[s.top]);
-	printf("%-10s%-10s\n", "Index", "Value");
+	printf("%-10s%-10s%-10s\n", "INDEX", "VALUE", "POSITION");
 	
 	int i;
 	for(i = 0; i < MAX; i++){
-		printf("%-10d%-10d\n", i, s.data[i]);
+		printf("\n%-10d%-10d", i, s.data[i]);
+		if(s.data[i] == stack_peek(s)){
+			printf("<-- TOP");
+		}
 	}
 	
  }

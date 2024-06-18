@@ -21,21 +21,22 @@ int main(int argc, char *argv[]) {
 	display(CQ);
 	visualize(CQ);
 	
-//	dequeue(&CQ);
-//	enqueue(&CQ, 300); // rear
-//	
-//	display(CQ);
-//	visualize(CQ);
-//	
-//	dequeue(&CQ);
-//	enqueue(&CQ, 400);
-//	dequeue(&CQ);
-//	enqueue(&CQ, 500);
-//	dequeue(&CQ);
-//	enqueue(&CQ, 600);
+	dequeue(&CQ);
+	enqueue(&CQ, 300); // rear
 	
-//		display(CQ);
-//	visualize(CQ);
+	display(CQ);
+	visualize(CQ);
+	
+	dequeue(&CQ);
+	enqueue(&CQ, 400);
+	dequeue(&CQ);
+	enqueue(&CQ, 500);
+	dequeue(&CQ);
+	enqueue(&CQ, 600);
+	enqueue(&CQ, 650); //error can't insert
+	
+		display(CQ);
+	visualize(CQ);
 
 	return 0;
 }

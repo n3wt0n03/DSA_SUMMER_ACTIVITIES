@@ -14,13 +14,14 @@ int main(int argc, char *argv[]) {
 	Enqueue(Q, 60);
 	
 	displayQueue(*Q);
+	visualize(*Q);
 	
 	Dequeue(Q);
 	Dequeue(Q);
 	
 	displayQueue(*Q);
+	visualize(*Q);
 	
-	printf("Front Data: %d\n", Front(*Q));
-	printf("Rear Data: %d", Rear(*Q));
+
 	return 0;
 }

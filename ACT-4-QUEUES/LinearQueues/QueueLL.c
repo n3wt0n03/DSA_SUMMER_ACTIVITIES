@@ -48,10 +48,36 @@ bool isEmpty(Queue Q){
 }
 
 void displayQueue(Queue Q){
+	printf("Displaying Queue(Linear):");
+	printf("\n--------------------\n");
+	printf("Front Data: %d\n", Front(Q));
+	printf("Rear Data: %d\n\n", Rear(Q));
+	
 	NodePtr trav;
 	for(trav = Q.front; trav != NULL; trav = trav->next){
 		printf("%d -> ", trav->data);
 	}
 	printf("NULL");
-	printf("\n\n");
+}
+
+void visualize(Queue Q){
+	printf("\n\nVisualization of Queue(Linear):");
+	printf("\n--------------------\n");
+	printf("Front Data: %d\n", Front(Q));
+	printf("Rear Data: %d\n\n", Rear(Q));
+	printf("%-10s%-10s%-10s\n", "NODE", "VALUE", "POSITION");
+	
+	NodePtr trav;
+	int elem;
+	for(trav = Q.front, elem = 0; trav != NULL; trav = trav->next, elem++){
+		printf("\n%-10d%-10d", elem, trav->data);
+		if(trav->data == Front(Q)){
+			printf("<--- FRONT");
+		}
+		if(trav->data == Rear(Q)){
+			printf("<--- REAR");
+		}
+	}
+	printf("\n\n\n");
+	
 }

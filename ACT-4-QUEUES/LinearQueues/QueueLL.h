@@ -21,6 +21,7 @@ int Rear(Queue Q); // Returns the value of the last node
 bool isEmpty(Queue Q); // Returns true if the queue is empty
 
 void displayQueue(Queue Q);// Display Queue
+void visualize(Queue Q);
 
 
 #endif
