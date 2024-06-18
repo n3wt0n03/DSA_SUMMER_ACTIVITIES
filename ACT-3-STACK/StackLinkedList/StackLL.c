@@ -10,7 +10,7 @@ StackLL initStack(void){
 }	
 
 bool isEmpty(StackLL head) {
-	return head == NULL; 
+	return (head == NULL) ? true : false; 
 }
 			
 void stack_push(StackLL *head, int data) {
@@ -30,10 +30,13 @@ void stack_pop(StackLL *head){
 }
 
 int stack_peek(StackLL head){
-	return head->data;
+	return (!isEmpty(head)) ? head->data : -1;
 }
 
 void display(StackLL head){
+	printf("Displaying Stack:");
+	printf("\n--------------------\n");
+	
 	StackLL tempStack = initStack();
 	
 	printf("Temporary Stack:\n");
@@ -43,6 +46,7 @@ void display(StackLL head){
 		stack_pop(&head);
 	}
 	
+	printf("\n");
 	printf("Original Stack: \n");
 	while(!isEmpty(tempStack)){
 		stack_push(&head, stack_peek(tempStack));
@@ -55,7 +59,7 @@ void visualize(StackLL head){
 	printf("\n\nVisualization of Stack(Linked List):");
 	printf("\n--------------------\n");
 	printf("Value of Top of the Stack: %d\n\n", stack_peek(head));
-	printf("%-10s%-10s\n", "Element", "Value");
+	printf("%-10s%-10s\n", "Node", "Value");
 	
 	StackLL trav;
 	int elem;

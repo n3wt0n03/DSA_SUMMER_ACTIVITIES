@@ -7,16 +7,22 @@ StackArrayList createStack(){
 	StackArrayList stack;
 	stack.top = -1;
 	
+	// Initialize all values to 0
+	int i;
+	for(i = 0; i < MAX; i++){
+		stack.data[i] = 0;
+	}
+	
 	return stack;
 //	printf("Successfuly created stack array\n");
 }
 
 bool isEmpty(StackArrayList s){
-	return s.top == -1;
+	return (s.top == -1) ? true : false;
 }
 
 bool isFull(StackArrayList s){
-	return s.top == MAX - 1;
+	return (s.top == MAX - 1) ? true : false;
 }
 
 bool stack_push(StackArrayList *s, int elem){
@@ -35,7 +41,7 @@ bool stack_pop(StackArrayList *s){
 }
 
 int stack_peek(StackArrayList s){
-	return s.data[s.top]; // returns the top data
+	return (!isEmpty(s)) ? s.data[s.top] : -1; // returns the top data
 }
 
 void display(StackArrayList s){
@@ -80,7 +86,7 @@ StackArrayList createStackEven(StackArrayList *s){
 	StackArrayList stackEven = createStack();
 	StackArrayList tempStack = createStack();
 	
-	printf("\nCreating a new stack with even numbers: \n\n");
+	printf("\n\nCreating a new stack with even numbers: \n\n");
 	while(!(isEmpty(*s))){
 		if(s->data[s->top] % 2 == 0){
 			stack_push(&stackEven, stack_peek(*s));

@@ -12,7 +12,7 @@ CURRENT ACTIVITIES IN THE REPOSITORY
 - Activity 1 - Array Implementation
 - Activity 2 - Linked List
 - Activity 3 - Stack (Array and Linked List)
-- Activity 4 - Queues
+- Activity 4 - Queues (Linear and Circular)
   
 NOTES TO REMEMBER: 
 - Activities 1 and 2 will be revised as a project
