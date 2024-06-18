@@ -11,4 +11,4 @@ Activity 4 - Queues (Linear and Circular)
 # CODES TO REVISE:
 - None so far
 
-Additional Notes: Ask sir if the display() and visualize() functions are correct
+Additional Notes: Ask sir if the display() and visualize() functions are correct for the Circular Queues
