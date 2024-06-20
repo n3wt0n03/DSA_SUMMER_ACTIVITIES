@@ -22,5 +22,20 @@ bool isFull(CircularQ CQ);
 void display(CircularQ CQ);
 void visualize(CircularQ CQ);
 
+//void display(circularQ LIST){
+//	printf("\n\n\t--------DISPLAYING QUEUE---------\n\n\tFRONT:  ");
+//	
+//	if(!isEmpty(LIST)){
+//		
+//		int i;
+//		for(i = LIST.front; i != (LIST.rear + 1) % MAX; i = (i + 1) % MAX){
+//			printf(" %d ", LIST.data[i]);
+//		}
+//		printf("    :REAR");
+//	} else {
+//		printf("!!! QUEUE IS EMPTY !!!");
+//	}
+//}
+
 
 #endif

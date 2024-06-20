@@ -66,9 +66,9 @@ void display(CircularQ CQ){
 void visualize(CircularQ CQ){
 	printf("\nVisualization of Circular Queue:");
 	printf("\n--------------------\n");
-	int i;
 	printf("%-10s%-10s%-10s\n", "INDEX", "DATA", "POSITION");
-	for(i = CQ.front; i != CQ.rear; i = (i + 1) % MAX){
+	int i;
+	for(i = 0; i < MAX; i++){
 		printf("%-10d%-10d", i,CQ.data[i]);
 		if(i == CQ.front) {
 			printf("<-- FRONT");
@@ -78,12 +78,5 @@ void visualize(CircularQ CQ){
 		}
 		printf("\n");	
 	}
-	printf("%-10d%-10d", i, CQ.data[i]);
-    if(i == CQ.front) {
-        printf("<-- FRONT");
-    }
-    if(i == CQ.rear) {
-        printf("<-- REAR");
-    }
     printf("\n");	
 }

@@ -16,12 +16,12 @@ int main(int argc, char *argv[]) {
 	displayQueue(*Q);
 	visualize(*Q);
 	
-	Dequeue(Q);
-	Dequeue(Q);
-	
-	displayQueue(*Q);
-	visualize(*Q);
-	
+//	Dequeue(Q);
+//	Dequeue(Q);
+//	
+//	displayQueue(*Q);
+//	visualize(*Q);
+//	
 
 	return 0;
 }
