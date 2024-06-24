@@ -60,35 +60,30 @@ bool isEmpty(Queue Q){
 //	printf("NULL");	
 //}
 
+
 void displayQueue(Queue Q) {
     printf("Displaying Queue(Linear):\n");
     printf("--------------------\n");
     printf("Front Data: %d\n", Front(Q));
     printf("Rear Data: %d\n\n", Rear(Q));
 
+//	Queue tempQueue = Q;
     Queue* temp = initQueue();
-    if (!isEmpty(Q)) {
-        while (!isEmpty(Q)) {
-            Enqueue(temp, Front(Q));
-            printf("%d -> ", Front(Q));
-            Dequeue(&Q);
-        }
+    while (!isEmpty(Q)) {
+        Enqueue(temp, Front(Q));
+        printf("%d -> ", Front(Q));
+        Dequeue(&Q);
     }
-
+    
+    printf("\n");
+    
     while (!isEmpty(*temp)) {
-//        Dequeue(temp);
         Enqueue(&Q, Front(*temp));
-        Dequeue(temp);
+        Dequeue(&temp);
+    	printf("%d -> ", Front(*temp));
     }
+//    
 
-//	while(!isEmpty(Q)) {
-//		if(Q.front == Q.rear){
-//			printf("%d -> ", Front(Q));
-//		} else {
-//			printf("%d -> ", Front(Q));
-//		}
-//		Dequeue(&Q);
-//	}
 	printf("NULL\n");
     printf("\n");
 }
