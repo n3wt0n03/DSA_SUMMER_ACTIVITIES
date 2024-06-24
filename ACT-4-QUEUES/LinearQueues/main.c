@@ -13,15 +13,15 @@ int main(int argc, char *argv[]) {
 	Enqueue(Q, 50);
 	Enqueue(Q, 60);
 	
-	displayQueue(*Q);
+	displayQueue(Q);
 	visualize(*Q);
 	
-//	Dequeue(Q);
-//	Dequeue(Q);
-//	
-//	displayQueue(*Q);
-//	visualize(*Q);
-//	
+	Dequeue(Q);
+	Dequeue(Q);
+	
+	displayQueue(Q);
+	visualize(*Q);
+	
 
 	return 0;
 }

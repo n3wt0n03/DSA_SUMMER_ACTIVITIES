@@ -4,30 +4,35 @@
 #include <stdlib.h>
 
 Queue* initQueue(void){
-	Queue* Q = (Queue*) malloc (sizeof(struct node));
-	Q->front = Q->rear = NULL;
-//	printf("Initialization Successful!");
-
+	Queue* Q = (Queue*) malloc (sizeof(Queue));
+	if(Q != NULL){
+		Q->front = Q->rear = NULL;
+		printf("Initialization Successful!\n\n");
+	} else {
+		printf("Initialization Unsuccessful!\n\n");
+	}
 	return Q;
 }
 
 void Enqueue(Queue* Q, int data) {
 	NodePtr temp = (NodePtr) malloc (sizeof(struct node));
-	temp->data = data;
-	temp->next = NULL;
-	
 	if(temp != NULL){
+		temp->data = data;
+		temp->next = NULL;
+		
 		if(Q->front == NULL){
 			Q->front = Q->rear = temp;
 		} else {
 			Q->rear->next = temp;
 			Q->rear = temp;
 		}
+	} else {
+		printf("Allocation failed!!");
 	}
 }
 
 void Dequeue(Queue* Q){
-	if(Q->front != NULL){
+	if(!isEmpty(*Q)){
 		NodePtr temp = Q->front;
 		Q->front = temp->next;
 		if(Q->front == NULL){
@@ -36,56 +41,37 @@ void Dequeue(Queue* Q){
 		free(temp);
 	} 
 }
+
 int Front(Queue Q){
 	return (!isEmpty(Q)) ? Q.front->data : -1;
 }
+
 int Rear(Queue Q){
 	return (!isEmpty(Q)) ? Q.rear->data : -1;
 }
 
 bool isEmpty(Queue Q){
-	return (Q.front == NULL && Q.rear == NULL) ? true : false;
+	return Q.front == NULL && Q.rear == NULL;
 }
 
-//void displayQueue(Queue Q){
-//	printf("Displaying Queue(Linear):");
-//	printf("\n--------------------\n");
-//	printf("Front Data: %d\n", Front(Q));
-//	printf("Rear Data: %d\n\n", Rear(Q));
-//	
-//	NodePtr trav;
-//	for(trav = Q.front; trav != NULL; trav = trav->next){
-//		printf("%d -> ", trav->data);
-//	}
-//	printf("NULL");	
-//}
 
-
-void displayQueue(Queue Q) {
+void displayQueue(Queue* Q) {
     printf("Displaying Queue(Linear):\n");
     printf("--------------------\n");
-    printf("Front Data: %d\n", Front(Q));
-    printf("Rear Data: %d\n\n", Rear(Q));
 
-//	Queue tempQueue = Q;
     Queue* temp = initQueue();
-    while (!isEmpty(Q)) {
-        Enqueue(temp, Front(Q));
-        printf("%d -> ", Front(Q));
-        Dequeue(&Q);
+    while(!isEmpty(*Q)) {
+        Enqueue(temp, Front(*Q));
+        printf("%d -> ", Front(*Q));
+        Dequeue(Q);
     }
     
-    printf("\n");
+    while(!isEmpty(*temp)){
+    	Enqueue(Q, Front(*temp));
+    	Dequeue(temp);
+	}
     
-    while (!isEmpty(*temp)) {
-        Enqueue(&Q, Front(*temp));
-        Dequeue(&temp);
-    	printf("%d -> ", Front(*temp));
-    }
-//    
-
-	printf("NULL\n");
-    printf("\n");
+    printf("NULL\n");
 }
 
 void visualize(Queue Q){
@@ -94,6 +80,7 @@ void visualize(Queue Q){
 	printf("Front Data: %d\n", Front(Q));
 	printf("Rear Data: %d\n\n", Rear(Q));
 	printf("%-10s%-10s%-10s\n", "NODE", "VALUE", "POSITION");
+	printf("------  ---------  ----------\n");
 	
 	NodePtr trav;
 	int elem;
@@ -107,5 +94,4 @@ void visualize(Queue Q){
 		}
 	}
 	printf("\n\n\n");
-	
 }

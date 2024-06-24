@@ -9,7 +9,7 @@ Activity 4 - Queues (Linear and Circular)
 - Navigate through the folders between QueueLL.c and CircularQueue.c
 
 # CODES TO REVISE:
-- QueueLL.c and CircularQueue.c 
+- CircularQueue.c 
 	- display() - wrong implementation, revise it - use a series of enqueue and dequeue
 	- visualize() - wrong implementation, revise it
 
