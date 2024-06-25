@@ -13,10 +13,12 @@ CURRENT ACTIVITIES IN THE REPOSITORY
 - Activity 2 - Linked List
 - Activity 3 - Stack (Array and Linked List)
 - Activity 4 - Queues (Linear and Circular)
+- Activity 5 - First Come First Serve (FCFS)
 - Activity 6 - SETS (UID)
+- Activity 7 - Dictionaries
   
 NOTES TO REMEMBER: 
 - Activities 1 and 2 will be revised as a project
 - Will add a README file on both Activities 1 and 2
-- Will add Activity 5 - FCFS
-- Will add Activity 7 - DICTIONARIES
+- Will revise Activity 5
+- Will continue Activity 7 after Midterm Exams
