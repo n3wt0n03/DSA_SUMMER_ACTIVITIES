@@ -64,10 +64,7 @@ ProcessArray getProcess(void){
 	int upperLetter = 65;
 	while(i < prcsCount){
 		tempArr.data[i].processID = i;
-		tempArr.data[i].et = -1;
-		tempArr.data[i].wt = -1;
-		tempArr.data[i].tt = -1;
-		
+
 		printf("Process ID: %c\n", upperLetter);
 		printf("Enter Arrival Time: ");
 		scanf("%d", &tempArr.data[i].at);
@@ -147,18 +144,28 @@ void executeFCFS(ProcessQueue PQ, ProcessArray PA){
 	printf("%-5s%-5s%-5s%-5s%-5s%-5s\n", "PROCESS | ", "BT | ", "AT | ", "ET | ", "WT | ", "TT | ");
 
     int currentTime = 0, waitingTime = 0, turnAroundTime = 0;  
-    int wtTotal = 0, ttTotal;
+    float wtTotal = 0, ttTotal;
 	while(!isEmpty(PQ)){
     	Process process = dequeueProcess(&PQ);
     	waitingTime = currentTime - process.at;
     	turnAroundTime += process.bt;
 
-//    	printf("%7c | %2d | %2d | %2d | %2d | %2d |\n", PA.data[0].processID+65, PA.data[0].bt, PA.data[0].at, PA.data[0].et, PA.data[0].wt, PA.data[0].tt);	    
   		printf("%7c | %2d | %2d | %2d | %2d | %2d |\n", process.processID+65, process.bt, process.at, currentTime, waitingTime, turnAroundTime);	    
 		currentTime += process.bt;
 		wtTotal += waitingTime;
 		ttTotal += turnAroundTime;
 	}
 	
-	printf("%7s - ----- - ----- - ----- | %2d | %2d |\n", "TOTAL", wtTotal, ttTotal);
+	printf("%7s - -- - -- - -- | %2.0f | %2.0f |\n\n", "TOTAL", wtTotal, ttTotal);
+	
+	float wtAvg = wtTotal / PA.dataCount; 
+	float ttAvg = ttTotal / PA.dataCount;
+	
+	printf("OUTPUT INFORMATION\n");	
+	printf("------------------\n");
+	printf("WT Total : %.0f\n", wtTotal);
+	printf("WT Average : %.2f\n", wtAvg);
+	printf("TT Total : %.0f\n", ttTotal);
+	printf("TT Average : %.2f\n", ttAvg);
+	
 }

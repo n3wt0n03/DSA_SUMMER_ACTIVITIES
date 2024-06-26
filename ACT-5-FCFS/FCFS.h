@@ -7,9 +7,6 @@ typedef struct {
 	int processID; // Process
 	int at; // Arrival Time
 	int bt; // Burst Time
-	int et; // Execution Time
-	int wt; // Waiting Time
-	int tt; // Turn Around Time
 }Process;
 
 typedef struct {
@@ -39,7 +36,7 @@ ProcessArray getProcess(void);
 void displayProcessArray(ProcessArray PA);
 
 void executeFCFS(ProcessQueue PQ, ProcessArray PA);
-//void displayProcessTable(ProcessArray PQ);
+
 
 
 

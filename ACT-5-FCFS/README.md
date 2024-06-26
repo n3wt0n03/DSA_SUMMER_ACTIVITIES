@@ -8,9 +8,6 @@ Activity 4 - First Come First Serve (FCFS)
 - Comment unnecessary comments on FCFS.c
 
 # CODES TO REVISE:
-- CircularQueue.c 
-	- executeFCFS()
-		- Will add average waiting time and time around time
-		- Will revise the display of the table
+- none
 
-Additional Notes: none
+Additional Notes: check it to sir if your implementation when executing the fcfs is correct

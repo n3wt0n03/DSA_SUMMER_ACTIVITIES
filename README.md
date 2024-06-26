@@ -20,5 +20,4 @@ CURRENT ACTIVITIES IN THE REPOSITORY
 NOTES TO REMEMBER: 
 - Activities 1 and 2 will be revised as a project
 - Will add a README file on both Activities 1 and 2
-- Will revise Activity 5
 - Will continue Activity 7 after Midterm Exams
