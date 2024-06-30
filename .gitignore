@@ -7,7 +7,7 @@
 
 
 # ignore files
-generateFile.c
+ACT-7-DICTIONARIES/generateFile.c
 
 # ignore folders
 Quizzes/
