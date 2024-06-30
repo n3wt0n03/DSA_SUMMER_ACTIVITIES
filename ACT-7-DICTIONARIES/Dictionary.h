@@ -57,7 +57,8 @@ arrListPet populatePetList(Pet pets[]);
 void displayArrListStud(arrListPet petList);
 
 /* Function Prototypes for Dictionaries*/
-int animalHash(animalType aType);
+int animalHash(animalType aType); // get the equivalent bits of 3
+int closeHash(animalType aType); // animalHash() + 10 % MAX
 
 // Open Dictionary
 void initOpenDict(petDict D);
@@ -66,7 +67,7 @@ void displayOpenDict(petDict D);
 
 // Open Dictionary
 void initCloseDict(petCLDict CLD);
-
+void convertToCloseDict(petDict D, petCLDict CLD);
 
 
 #endif

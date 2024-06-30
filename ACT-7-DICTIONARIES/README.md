@@ -10,7 +10,6 @@ Activity 6 - Dictionaries (Close and Open Hashing)
 # CODES TO REVISE:
 - deleteElement in Open Hashing
 - Currently working on Close Hashing
-	- Initialization
 	- Insert
 	- Deletion
 

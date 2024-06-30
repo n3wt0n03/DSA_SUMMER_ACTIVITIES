@@ -121,5 +121,30 @@ void initCloseDict(petCLDict CLD){
 	}
 }
 
+int closeHash(animalType aType){
+	int retVal = 0;
+	
+	retVal = (animalHash(aType) + 10) % MAX_CLOSE;
+	return retVal;
+}
+
+void convertToCloseDict(petDict D, petCLDict CLD){
+	int i, ndx;
+	petLL *trav; // use PPN for deletion (deleteFirst)
+	
+	// Access the first index in the Open Dictionary
+	// Hash the the animal type of the first index of the Open Dictionary
+	// Access the hashed index of Close Dictionary
+	// Insert to Close Dictionary
+	// Delete the the index' chain in the Open Dictionary
+	// Repeat until Open Dictionary is empty
+	
+	for(i = 0; i < ANIMALS; i++){
+		trav = &D[i];
+	}
+}
+
+
+
 
 

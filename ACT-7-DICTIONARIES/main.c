@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 	// Close Dictionary
 	petCLDict PCD;
 	initCloseDict(PCD);
-	
+	convertToCloseDict(PD, PCD);
 	
 	return 0;
 }
