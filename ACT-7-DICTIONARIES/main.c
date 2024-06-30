@@ -33,6 +33,10 @@ int main(int argc, char *argv[]) {
 	insertPet(PD, PL);
 	displayOpenDict(PD);
 	
+	// Close Dictionary
+	petCLDict PCD;
+	initCloseDict(PCD);
+	
 	
 	return 0;
 }

@@ -79,6 +79,7 @@ void insertPet(petDict D, arrListPet PL){
 	for(i = 0; i < PL.numPets; i++){
 		int ndx = animalHash(PL.animal[i].type);
 		
+		// Make a new functin purely for inserting it as linked-list
 		for(trav = &D[ndx]; *trav != NULL && strcmp((*trav)->pet.petID, PL.animal[i].petID) != 0; trav = &(*trav)->next){}
 		
 		petLL newNode = (petLL) malloc (sizeof(petNode));
@@ -107,6 +108,16 @@ void displayOpenDict(petDict D){
 			printf("%-10s => ", trav->pet.animal_name);
 		}
 		printf("NULL \n");
+	}
+}
+
+void initCloseDict(petCLDict CLD){
+	int i;
+	for(i = 0; i < MAX_CLOSE; i++){
+		strcpy(CLD[i].petID, EMPTY);
+		strcpy(CLD[i].animal_name.fName, EMPTY);
+		strcpy(CLD[i].animal_name.lName, EMPTY);
+		CLD[i].type = 0b00000000;
 	}
 }
 

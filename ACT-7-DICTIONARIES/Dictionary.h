@@ -1,7 +1,10 @@
 #ifndef DICTIONARY
 #define DICTIONARY
-#define ANIMALS 4 // For Open Dict (Based on bit hash)
 #define MAX_PETS 15 // Number of pets to be stored inside the array
+#define ANIMALS 4 // For Open Dict (Based on bit hash)
+#define MAX_CLOSE 25// For Close Dict
+#define EMPTY "empty"
+#define DELETED "del"
 
 //#include <stdbool.h>
 
@@ -44,18 +47,25 @@ typedef struct petNode{
 	struct petNode* next;
 }petNode, *petLL;
 
-typedef petLL petDict[ANIMALS];
+typedef petLL petDict[ANIMALS]; // Open Dictionary
 
+typedef Pet petCLDict[MAX_CLOSE]; // Close Dictionary
+
+/* Function Prototypes for Array List*/
 char* getAnimalType(animalType aType);       
 arrListPet populatePetList(Pet pets[]);
 void displayArrListStud(arrListPet petList);
 
+/* Function Prototypes for Dictionaries*/
 int animalHash(animalType aType);
+
+// Open Dictionary
 void initOpenDict(petDict D);
 void insertPet(petDict D, arrListPet PL);
 void displayOpenDict(petDict D);
 
-
+// Open Dictionary
+void initCloseDict(petCLDict CLD);
 
 
 
