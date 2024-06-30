@@ -1,8 +1,8 @@
-# OCHAVO_ACTIVITY_05_DSA
+# OCHAVO_ACTIVITY_06_DSA
 
 Marc Nelson B. Ochavo Activity 4 in DSA Group 3, 1:30 - 4:30 PM, Summer
 
-Activity 5 - First Come First Serve (FCFS) 
+Activity 6 - Sets (Union, Intersection, Difference) 
 
 # INSTRUCTIONS:
 - Comment unnecessary comments on FCFS.c

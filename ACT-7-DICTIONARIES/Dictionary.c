@@ -2,40 +2,113 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
+//#include <stdbool.h>
 
 char* getAnimalType(animalType aType) {
-	
+    animalType mask = aType & 0b11; // shift right by 1 bit and mask with 3
+    char* retVal = (char*) malloc (sizeof(char)*8);
+    strcpy(retVal, " ");
+
+	if(retVal != NULL){
+		if(mask == 0b00){
+			strcpy(retVal, "Cat");
+		} else if(mask == 0b01){
+			strcpy(retVal, "Dog");
+		} else if(mask == 0b10){
+			strcpy(retVal, "Fish");
+		} else {
+			strcpy(retVal, "Bird");
+		} 
+	}
+    return retVal;
 }
 
-arrListPet populatePetList(void){
-    FILE* fp;
-    student* studs;
-    int dataCount;
-    arrListStud SL = {{}, 0};
-    
-    if((fp = fopen("students.bin", "rb"))== NULL){
-        puts("Unsuccessful in opening students.txt");
-    }else{
-        fseek(fp, 0, 2);
-        dataCount = (int) ftell(fp) / sizeof(student);
-        studs = (student*) malloc (sizeof(student) * dataCount);
-        if(studs != NULL){
-            fseek(fp, 0, 0);
-            fread(studs, sizeof(student), dataCount, fp);
-        }
-        /* In this section, insert all the studs into an setList to be returned. */
+arrListPet populatePetList(Pet pets[]){
+	arrListPet PL;
+	int i;
+	
+	for(i = 0; i < MAX_PETS; i++){
+		PL.animal[i] = pets[i];
+	}
+	PL.numPets = MAX_PETS;
+
+	printf("Pets are populated inside the array!\n\n");
+	return PL;
 }
 
 void displayArrListStud(arrListPet petList)
 {
-    printf("Student Data from the file\n");
-    printf("%-10s", "Id Number");
-    printf("%-10s", "fName");
-    printf("%-10s\n", "lName");
+    printf("Pet List inside the Array\n");
+    printf("---------------------------\n");
+    printf("Pet count inside the array: %d\n\n", petList.numPets);
+    printf("%-10s%-10s%-10s%-10s\n", "Index", "fName", "lName", "Animal\n");
     
-    //for(){
-        printf("%-10s%-10s%-10s\n");
-    //}
+    int i;
+    for(i = 0; i < petList.numPets; i++){
+        printf("%-10d%-10s%-10s%-10s\n", i, petList.animal[i].animal_name.fName, petList.animal[i].animal_name.lName, getAnimalType(petList.animal[i].type));
+    }
 }
+
+void initOpenDict(petDict D){
+	int i;
+	for(i = 0; i < ANIMALS; i++){
+		D[i] = NULL;
+	}
+}
+
+int animalHash(animalType aType) {
+    int retVal = 0;
+    animalType mask = aType & 0b11; // shift right by 1 bit and mask with 3
+
+	if(mask == 0b00){
+		retVal = 0;
+	} else if(mask == 0b01){
+		retVal = 1;
+	} else if(mask == 0b10){
+		retVal = 2;
+	} else {
+		retVal = 3;
+	} 
+    return retVal;
+}
+
+void insertPet(petDict D, arrListPet PL){
+	int i;
+	petLL *trav;
+	
+	for(i = 0; i < PL.numPets; i++){
+		int ndx = animalHash(PL.animal[i].type);
+		
+		for(trav = &D[ndx]; *trav != NULL && strcmp((*trav)->pet.petID, PL.animal[i].petID) != 0; trav = &(*trav)->next){}
+		
+		petLL newNode = (petLL) malloc (sizeof(petNode));
+		if(newNode != NULL){
+				newNode->pet = PL.animal[i];
+				newNode->next = *trav;
+				*trav = newNode;
+		} else {
+			printf("New node not initialized\n");	
+		}
+	}  
+}
+
+void displayOpenDict(petDict D){
+	printf("\n\nSETS OF PETS USING OPEN DICTIONARY:");
+	printf("\n-----------------------------------\n\n");
+	printf("%10s", "INDEX");
+	printf("%20s", "CHAIN OF VALUES\n");
+	
+	int i;
+	petLL trav;
+	
+	for(i = 0; i < ANIMALS; i++){
+		printf("%6s %-10d", " ", i);
+		for(trav = D[i]; trav != NULL; trav = trav->next){
+			printf("%-10s => ", trav->pet.animal_name);
+		}
+		printf("NULL \n");
+	}
+}
+
+
 

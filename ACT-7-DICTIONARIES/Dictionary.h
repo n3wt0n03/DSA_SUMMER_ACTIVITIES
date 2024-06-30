@@ -1,11 +1,11 @@
 #ifndef DICTIONARY
 #define DICTIONARY
-#define TYPE 5 
-#define MAX 25
+#define ANIMALS 4 // For Open Dict (Based on bit hash)
+#define MAX_PETS 15 // Number of pets to be stored inside the array
 
-// Set the bits for animal types
-// Set the array
-// Set the open dictionary
+//#include <stdbool.h>
+
+// Set the open dictionary (deleteElem)
 // Convert to close dictionary
 
 typedef struct {
@@ -29,12 +29,13 @@ typedef unsigned char animalType;
 */
 
 typedef struct {
+	char petID[5];
 	petName animal_name;
 	animalType type;
 }Pet;
 
 typedef struct {
-	Pet animal[MAX];
+	Pet animal[MAX_PETS];
 	int numPets;
 }arrListPet;
 
@@ -43,10 +44,16 @@ typedef struct petNode{
 	struct petNode* next;
 }petNode, *petLL;
 
-char* getAnimalType(animalType aType);
-arrListPet populatePetList(void);
+typedef petLL petDict[ANIMALS];
+
+char* getAnimalType(animalType aType);       
+arrListPet populatePetList(Pet pets[]);
 void displayArrListStud(arrListPet petList);
 
+int animalHash(animalType aType);
+void initOpenDict(petDict D);
+void insertPet(petDict D, arrListPet PL);
+void displayOpenDict(petDict D);
 
 
 
