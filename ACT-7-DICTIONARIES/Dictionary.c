@@ -61,13 +61,13 @@ int animalHash(animalType aType) {
     animalType mask = aType & 0b11; // shift right by 1 bit and mask with 3
 
 	if(mask == 0b00){
-		retVal = 0;
+		retVal = 0; // Cat
 	} else if(mask == 0b01){
-		retVal = 1;
+		retVal = 1; // Dog
 	} else if(mask == 0b10){
-		retVal = 2;
+		retVal = 2; // Fish
 	} else {
-		retVal = 3;
+		retVal = 3; // Bird
 	} 
     return retVal;
 }
@@ -129,18 +129,27 @@ int closeHash(animalType aType){
 }
 
 void convertToCloseDict(petDict D, petCLDict CLD){
-	int i, ndx;
+	int i, j,ndx;
 	petLL *trav; // use PPN for deletion (deleteFirst)
 	
-	// Access the first index in the Open Dictionary
-	// Hash the the animal type of the first index of the Open Dictionary
-	// Access the hashed index of Close Dictionary
-	// Insert to Close Dictionary
+	// Access the first index in the Open Dictionary -> Check
+	// Hash the the animal type of the first index of the Open Dictionary -> Check
+	// Access the hashed index of Close Dictionary -> Check
+	// Insert to Close Dictionary -> Check
 	// Delete the the index' chain in the Open Dictionary
 	// Repeat until Open Dictionary is empty
 	
 	for(i = 0; i < ANIMALS; i++){
 		trav = &D[i];
+	
+		if(trav != NULL){
+			ndx = closeHash((*trav)->pet.type);
+		
+			for(j = ndx; strcmp(CLD[j].petID, EMPTY) != 0 && strcmp(CLD[j].petID, DELETED) != 0; j = (ndx+1) % MAX_CLOSE){}
+			CLD[j] = (*trav)->pet;			
+		}
+		
+		// DeleteFirst from the Open Dictionary
 	}
 }
 
