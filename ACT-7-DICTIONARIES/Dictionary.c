@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <stdbool.h>
+#include <stdbool.h>
 
 char* getAnimalType(animalType aType) {
     animalType mask = aType & 0b11; // shift right by 1 bit and mask with 3
@@ -121,35 +121,71 @@ void initCloseDict(petCLDict CLD){
 	}
 }
 
-int closeHash(animalType aType){
+int closeHash(char fName[], animalType aType){
 	int retVal = 0;
 	
-	retVal = (animalHash(aType) + 10) % MAX_CLOSE;
-	return retVal;
+	int i;
+	for(i = 0; fName[i] != '\0'; i++){
+		retVal += fName[i];
+	}
+	
+//	printf("%s = %d\n", fName, retVal % MAX_CLOSE);
+	return retVal % MAX_CLOSE;
+}
+
+bool isFull(petCLDict CLD){
+	int i, counter = 0;
+	for(i = 0; i < MAX_CLOSE; i++){
+		if(strcmp(CLD[i].petID, EMPTY) == 0 && strcmp(CLD[i].petID, DELETED) == 0){
+			counter++;
+		}
+	}
+	
+	return (counter == MAX_CLOSE) ? true : false;
 }
 
 void convertToCloseDict(petDict D, petCLDict CLD){
-	int i, j,ndx;
-	petLL *trav; // use PPN for deletion (deleteFirst)
-	
-	// Access the first index in the Open Dictionary -> Check
-	// Hash the the animal type of the first index of the Open Dictionary -> Check
-	// Access the hashed index of Close Dictionary -> Check
-	// Insert to Close Dictionary -> Check
-	// Delete the the index' chain in the Open Dictionary
-	// Repeat until Open Dictionary is empty
-	
-	for(i = 0; i < ANIMALS; i++){
-		trav = &D[i];
-	
-		if(trav != NULL){
-			ndx = closeHash((*trav)->pet.type);
-		
-			for(j = ndx; strcmp(CLD[j].petID, EMPTY) != 0 && strcmp(CLD[j].petID, DELETED) != 0; j = (ndx+1) % MAX_CLOSE){}
-			CLD[j] = (*trav)->pet;			
+	int i, j, ndx;
+    petLL *trav, temp;
+ 
+	// Access the indexes in the Open Dictionary
+    for(i = 0; i < ANIMALS; i++){
+    	// Loop through the Open Dictionary starting from the first index
+        for(trav = &D[i]; *trav != NULL; ){      	
+        	if(!isFull(CLD)){
+        		// Hash the animal type + first name of pet from the Open Dictionary
+        		ndx = closeHash((*trav)->pet.animal_name.fName, (*trav)->pet.type);
+        		// Access the hashed index of Close Dictionary
+				// Check if it collides, if it is, linear probing
+        		for(j = ndx; strcmp(CLD[j].petID, EMPTY) == 0 && strcmp(CLD[j].petID, DELETED) == 0; j = (j + 1) % MAX_CLOSE){}
+        		// Insert to Close Dictionary 
+				CLD[j] = (*trav)->pet;
+				
+				// Delete the Pet Node from the Open Dictionary; Repeat the steps till the Open Dictionary is empty
+	            temp = *trav;
+	            *trav = (*trav)->next;
+	            free(temp);
+			}
 		}
-		
-		// DeleteFirst from the Open Dictionary
+    }
+}
+
+void displayCloseDict(petCLDict CLD){
+	printf("\n\nSETS OF PETS USING ClOSE DICTIONARY:");
+	printf("\n-----------------------------------\n\n");
+ 	printf("%-10s%-10s%-10s%-10s\n", "INDEX", "FNAME", "LNAME", "ANIMAL\n");
+	
+	int i;
+	for(i = 0; i < MAX_CLOSE; i++){
+		    animalType mask = CLD[i].type & 0b11111111;
+		    char* retVal = (char*) malloc (sizeof(char)*8);
+		    int retType;
+				if(mask == 0b00000000){
+					strcpy(retVal, "EMPTY");
+				} else {
+					retVal = getAnimalType(CLD[i].type);
+				}
+		printf("%-10d%-10s%-10s%-10s\n", i, CLD[i].animal_name.fName, CLD[i].animal_name.lName, retVal);
 	}
 }
 

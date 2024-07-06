@@ -37,6 +37,10 @@ int main(int argc, char *argv[]) {
 	petCLDict PCD;
 	initCloseDict(PCD);
 	convertToCloseDict(PD, PCD);
+	displayCloseDict(PCD);
+	
+	// Check to see if the Open Dictionary is now empty:
+	displayOpenDict(PD);
 	
 	return 0;
 }

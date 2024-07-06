@@ -6,10 +6,7 @@
 #define EMPTY "empty"
 #define DELETED "del"
 
-//#include <stdbool.h>
-
-// Set the open dictionary (deleteElem)
-// Convert to close dictionary
+#include <stdbool.h>
 
 typedef struct {
 	char fName[64];
@@ -58,16 +55,20 @@ void displayArrListStud(arrListPet petList);
 
 /* Function Prototypes for Dictionaries*/
 int animalHash(animalType aType); // get the equivalent bits of 3
-int closeHash(animalType aType); // animalHash() + 10 % MAX
+int closeHash(char fName[], animalType aType); // animalHash() + 10 % MAX
 
 // Open Dictionary
 void initOpenDict(petDict D);
 void insertPet(petDict D, arrListPet PL);
+//void deletePet(petDict D);
 void displayOpenDict(petDict D);
 
-// Open Dictionary
+// Close Dictionary
 void initCloseDict(petCLDict CLD);
+bool isFull(petCLDict CLD);
 void convertToCloseDict(petDict D, petCLDict CLD);
+
+
 
 
 #endif

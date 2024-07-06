@@ -16,8 +16,9 @@ CURRENT ACTIVITIES IN THE REPOSITORY
 - Activity 5 - First Come First Serve (FCFS)
 - Activity 6 - SETS (UID)
 - Activity 7 - Dictionaries
+- Activity 8 - Binary Search Trees (BST)
   
 NOTES TO REMEMBER: 
 - Activities 1 and 2 will be revised as a project
 - Will add a README file on both Activities 1 and 2
-- Will continue Activity 7 after Midterm Exams
+- More revisions in Activity 8
