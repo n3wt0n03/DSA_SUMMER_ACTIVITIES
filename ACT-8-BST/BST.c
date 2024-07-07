@@ -41,7 +41,36 @@ void addElement(NodePtr* T, Product prod[]) {
 	}
 }
 
-//void deleteElement(NodePtr* T, Product prod);
+void deleteElement(NodePtr* T, Product prod){
+	NodePtr *trav, *succ, temp;
+	
+	// Loop throught the tree and find the elem
+	for(trav = T; *trav != NULL && strcmp((*trav)->item.prodName, prod.prodName) != 0; ){
+			trav = (strcmp((*trav)->item.prodName, prod.prodName) < 0) ? &(*trav)->right : &(*trav)->left;
+	}
+	
+	if(*trav != NULL){
+		// If there is no LC, let *trav point to the remaining child.
+		if((*trav)->left == NULL){
+			temp = *trav;
+			*trav = temp->right;
+			free(temp);
+		// Else, if there is no RC, let *trav point to the remaining child.
+		} else if ((*trav)->right == NULL){
+			temp = *trav;
+			*trav = temp->left;
+			free(temp);
+		// Else, if there are two children, find the successor
+		} else {
+			for(succ = &(*trav)->right; (*succ)->left != NULL; succ = &(*succ)->left){}
+			temp = *succ;
+			*succ = temp->right;
+			(*trav)->item = temp->item;
+			free(temp);
+		}
+		
+	}
+}
 
 void preOrder(NodePtr T){
 	if(T != NULL){

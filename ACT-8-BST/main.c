@@ -22,7 +22,24 @@ int main(int argc, char *argv[]) {
 	NodePtr T = initTree();
 	
 	addElement(&T, prods);
+	
+	printf("\nPreOrder Traversal: \n");
 	preOrder(T);
+	printf("\n");
+	
+	printf("\nInOrder Traversal: \n");
+	inOrder(T);
+	printf("\n");
+	
+	printf("\nPostOrder Traversal: \n");
+	postOrder(T);
+	printf("\n");
+	
+	deleteElement(&T, prods[2]);
+	
+	printf("\nPreOrder Traversal after deletion: \n");
+	preOrder(T);
+	printf("\n");
 	
 	return 0;
 }

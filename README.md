@@ -21,4 +21,4 @@ CURRENT ACTIVITIES IN THE REPOSITORY
 NOTES TO REMEMBER: 
 - Activities 1 and 2 will be revised as a project
 - Will add a README file on both Activities 1 and 2
-- More revisions in Activity 8
+- Do BFS in Activity 8

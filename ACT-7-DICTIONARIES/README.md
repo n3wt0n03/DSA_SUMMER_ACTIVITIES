@@ -12,4 +12,4 @@ Activity 6 - Dictionaries (Close and Open Hashing)
 
 Additional Notes: 
 - Check to see if the way we hash is okay.
-- double check the data if we did the linear probing correctly
+- Double check the data if we did the linear probing correctly

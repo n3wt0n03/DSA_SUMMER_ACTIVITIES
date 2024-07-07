@@ -8,8 +8,12 @@ Activity 6 - Binary Search Trees (BST)
 - Comment unnecessary comments on BST.c
 
 # CODES TO REVISE:
-- addElement
-- deleteElement
+- BFS Traversal
 
 Additional Notes: 
-- double check the tree if the way we draw and traverse are matched
+- Double check the tree if the way we draw and the output are matched when doing:
+	- Insertion
+	- Deletion
+	- Traversal
+
+- Double check if our deletion is correct.
