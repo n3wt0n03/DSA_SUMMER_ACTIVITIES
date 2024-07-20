@@ -25,7 +25,7 @@ NodePtr initTree(void);
 void addElement(NodePtr* T, Product prod[]);
 void deleteElement(NodePtr* T, Product prod);
 
-//DFS
+// DFS
 void preOrder(NodePtr T);
 void inOrder(NodePtr T);
 void postOrder(NodePtr T);

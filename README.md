@@ -17,8 +17,7 @@ CURRENT ACTIVITIES IN THE REPOSITORY
 - Activity 6 - SETS (UID)
 - Activity 7 - Dictionaries
 - Activity 8 - Binary Search Trees (BST)
+- Activity 9 - Graphs
   
 NOTES TO REMEMBER: 
-- Activities 1 and 2 will be revised as a project
-- Will add a README file on both Activities 1 and 2
-- Do BFS in Activity 8
+- Read README Files

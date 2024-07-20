@@ -6,7 +6,7 @@ Activity 4 - Queues (Linear and Circular)
 
 # INSTRUCTIONS:
 - Comment unnecessary comments on both QueueLL.c and CircularQueue.c
-- Navigate through the folders between QueueLL.c and CircularQueue.c
+- Navigate through the folders between LinearQueues and CircularQueueArrays
 
 # CODES TO REVISE:
 - CircularQueue.c 
